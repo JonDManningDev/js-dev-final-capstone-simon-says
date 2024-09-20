@@ -86,8 +86,8 @@ function startButtonHandler() {
   // TODO: Write your code here.
   maxRoundCount = setLevel();
   roundCount ++;
-  startButton.classList.add(".hidden");
-  statusSpan.classList.remove(".hidden");
+  startButton.classList.add("hidden");
+  statusSpan.classList.remove("hidden");
   playComputerTurn();
 
   return { startButton, statusSpan };
@@ -111,10 +111,12 @@ function startButtonHandler() {
  * 6. Return the `color` variable as the output
  */
 function padHandler(event) {
-  const { color } = event.target.dataset;
-  if (!color) return;
-
   // TODO: Write your code here.
+  const { color } = event.target.dataset;
+  if (!color) return;  
+  const pad = pads.find((pad) => pad.color === color);
+  pad.sound.play();
+  checkPress(color);
   return color;
 }
 
@@ -270,7 +272,7 @@ function activatePads(sequence) {
   padContainer.classList.add("unclickable");
   setText(statusSpan, "The computer's turn...");
   setText(heading, `Round ${roundCount} of ${maxRoundCount}`);
-  computerSequence.push(getRandomItem(pads));
+  computerSequence.push(getRandomItem(pads).color);
   activatePads(computerSequence);
 
   setTimeout(() => playHumanTurn(roundCount), roundCount * 600 + 1000); // 5
