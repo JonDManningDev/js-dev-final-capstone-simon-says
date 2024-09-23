@@ -331,7 +331,7 @@ function playHumanTurn() {
 
 function checkPress(color) {
   playerSequence.push(color);
-  const index = playerSequence.length - 1;
+  const index = playerSequence.length - 1; // More accurate way of finding the current index than the .indexOf(color) implementation assumed by the tests, since .indexOf() will stop looking after finding the first matching index.
   const remainingPresses = computerSequence.length - playerSequence.length;
   setText(statusSpan, `Player has ${remainingPresses} presses remaining.`);
   if (!(playerSequence[index] === computerSequence[index])) {
