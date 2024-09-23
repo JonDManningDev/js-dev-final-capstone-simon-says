@@ -1,3 +1,7 @@
+*This repo is my completed implementation of the project described below (4.10.1 Web Development Foundations Capstone).*
+
+*My implementation includes both differentiation in visual styling and the inclusion of a skill selector to vary game length/difficulty.*
+
 # Simon Says
 
 You've been hired as an intern at *Thinkful Game Studio*, which has decided to create a game, *Simon Says*. You will be applying all the HTML, CSS, and JavaScript skills you've learned in this course to help them build this game.
