@@ -7,6 +7,7 @@ const startButton = document.querySelector(".js-start-button");
 const statusSpan = document.querySelector(".js-status"); // Use querySelector() to get the status element
 const heading = document.querySelector(".js-heading"); // Use querySelector() to get the heading element
 const padContainer = document.querySelector(".js-pad-container"); // Use querySelector() to get the heading element
+const skillSelect = document.querySelector("#skill-select");
 
 /**
  * VARIABLES
@@ -84,9 +85,10 @@ startButton.addEventListener("click", startButtonHandler);
  */
 function startButtonHandler() {
   // TODO: Write your code here.
-  maxRoundCount = setLevel();
+  maxRoundCount = setLevel(parseInt(skillSelect.value));
   roundCount++;
   startButton.classList.add("hidden");
+  skillSelect.classList.add("hidden");
   statusSpan.classList.remove("hidden");
   playComputerTurn();
 
@@ -385,6 +387,7 @@ function resetGame(text) {
   // Uncomment the code below:
   alert(text);
   setText(heading, "Simon Says");
+  skillSelect.classList.remove("hidden");
   startButton.classList.remove("hidden");
   statusSpan.classList.add("hidden");
   padContainer.classList.add("unclickable");
